@@ -1,4 +1,5 @@
-﻿using SolidPrinciplePractice.SingleResponability.Correct;
+﻿using SolidPrinciplePractice.OpenClosedPrinciple.Correct;
+using SolidPrinciplePractice.SingleResponability.Correct;
 
 namespace SolidPrinciplePractice
 {
@@ -18,7 +19,14 @@ namespace SolidPrinciplePractice
 
             fileManager.SaveToFile(report);
 
+            #endregion
 
+            #region Open/Closed Principle
+
+            var processor = new PaymentProcessor();
+
+            processor.Process(new CreditCardPayment());
+            processor.Process(new PaypalPayment());
 
             #endregion
         }
